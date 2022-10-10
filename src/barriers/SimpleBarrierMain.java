@@ -12,14 +12,14 @@ public class SimpleBarrierMain {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insert the number of Threads to create:");
 		int n = scanner.nextInt();
-        Thread[] threads = new Thread[n];
+        SimpleBarrierThread[] threads = new SimpleBarrierThread[n];
 
         Counter c = new Counter(0); 
         Lock mutex = new MutexLock(1);
         Semaphore barrier = new Semaphore(0);
 
         for (int i = 0; i < n; i++) {
-			BarrierThread thread = new BarrierThread("Thread " + i, n, c, barrier, mutex);
+			SimpleBarrierThread thread = new SimpleBarrierThread("Thread " + i, n, c, barrier, mutex);
 			threads[i] = thread;
         }
 
@@ -30,13 +30,6 @@ public class SimpleBarrierMain {
         for (Thread t : threads) {
             t.join(); 
         }
-        // String msg = String.format(
-        //         "Final value of counter: %d",
-        //         c.getCount()
-        // );
-        // System.out.println(msg);
-
-
         scanner.close();
     }
 }
