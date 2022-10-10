@@ -27,7 +27,7 @@ public class Main {
             t.join(); 
         }
         String msg = String.format(
-                "Final value of the counter: %d",
+                "Final value of counter: %d",
                 c.getCount()
         );
         System.out.println(msg);
