@@ -9,26 +9,31 @@ public class Main {
 		
 		int n = scanner.nextInt();
 
-		Counter count = new Counter();
-		Lock mutexLock = new MutexLock(1);
-		
-		System.out.println(count.getCount());
-		mutexLock.lock();
-		System.out.println(count.getCount());
-		count.increment();
-		System.out.println(count.getCount());
-		mutexLock.unlock();
-		
-		
-		
-		
-		
+        Thread[] threads = new Thread[n];
+
+        Counter c = new Counter(); 
+        Lock lock = new MutexLock(1);
+
+        for (int i = 0; i < n; i++) {
+			Thread thread = new MyThread("Thread " + i, c, lock);
+			threads[i] = thread;
+        }
+
+        for (Thread t : threads) {
+            t.start(); 
+        }
+
+        for (Thread t : threads) {
+            t.join(); 
+        }
+        String msg = String.format(
+                "Final value of the counter: %d",
+                c.getCount()
+        );
+        System.out.println(msg);
 		scanner.close();
-//		Lock s = new MutexLock(1);
-//		
-//		Thread threadA = new Thread();
-//		Thread threadB = new Thread();
-
-	}
-
+    }
 }
+
+
+

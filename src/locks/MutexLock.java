@@ -22,11 +22,6 @@ public class MutexLock implements Lock{
 
 	@Override
 	public void unlock() {
-		try {
-			this.semaphore.acquire();
-		} catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
-
+		this.semaphore.release();
 	}
 }

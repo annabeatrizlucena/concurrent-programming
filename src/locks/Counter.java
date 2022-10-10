@@ -11,7 +11,7 @@ public class Counter {
 	public void increment() throws InterruptedException {
         long sleepTime = (long) (Math.random() * 1000);
         String msg = String.format(
-                "Thread %s will sleep %d milliseconds",
+                "%s will sleep %d milliseconds",
                 Thread.currentThread().getName(),
                 sleepTime
         );
@@ -24,7 +24,7 @@ public class Counter {
 	public void decrement() throws InterruptedException {
 		long sleepTime = (long) (Math.random() * 1000);
         String msg = String.format(
-                "Thread %s will sleep %d milliseconds",
+                "%s will sleep %d milliseconds",
                 Thread.currentThread().getName(),
                 sleepTime
         );
