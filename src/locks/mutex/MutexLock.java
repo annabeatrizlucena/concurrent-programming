@@ -1,6 +1,8 @@
-package locks;
+package locks.mutex;
 
 import java.util.concurrent.Semaphore;
+
+import locks.util.Lock;
 
 public class MutexLock implements Lock{
 	
@@ -23,5 +25,10 @@ public class MutexLock implements Lock{
 	@Override
 	public void unlock() {
 		this.semaphore.release();
+	}
+
+	@Override
+	public String toString(){
+		return "mutex";
 	}
 }

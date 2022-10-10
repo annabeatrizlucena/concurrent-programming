@@ -1,11 +1,11 @@
-package locks;
+package locks.util;
 
 public class Counter {
 	
 	private int count;
 	
-	public Counter() {
-		this.count = 0;
+	public Counter(int n) {
+		this.count = n;
 	}
 
 	public void increment() throws InterruptedException {
@@ -35,6 +35,13 @@ public class Counter {
 	}
 	
 	public int getCount() {
+                long sleepTime = (long) (Math.random() * 1000);
+                String msg = String.format(
+                "%s will sleep %d milliseconds",
+                Thread.currentThread().getName(),
+                sleepTime
+        );
+                System.out.println(msg);
 		return this.count;
 	}
 }
