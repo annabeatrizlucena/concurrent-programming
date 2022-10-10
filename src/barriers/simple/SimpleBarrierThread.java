@@ -1,4 +1,4 @@
-package barriers;
+package barriers.simple;
 
 import java.util.concurrent.Semaphore;
 import locks.util.Lock;

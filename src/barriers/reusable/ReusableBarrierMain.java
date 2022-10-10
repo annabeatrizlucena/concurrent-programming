@@ -1,4 +1,4 @@
-package barriers;
+package barriers.reusable;
 
 import java.util.Scanner;
 import java.util.concurrent.Semaphore;
