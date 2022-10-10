@@ -5,14 +5,14 @@ import locks.util.Lock;
 
 import locks.util.Counter;
 
-public class BarrierThread extends Thread{
+public class SimpleBarrierThread extends Thread{
     private String name; 
     private int n;
     private Counter counter;
     private Semaphore barrier;
     private Lock mutexLock;
 
-    public BarrierThread(String name, int n, Counter counter, Semaphore barrier, Lock mutex){
+    public SimpleBarrierThread(String name, int n, Counter counter, Semaphore barrier, Lock mutex){
         this.name = name;
         this.n = n;
         this.counter = counter;
