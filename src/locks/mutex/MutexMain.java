@@ -1,7 +1,11 @@
-package locks;
+package locks.mutex;
 import java.util.Scanner;
 
-public class Main {
+import locks.util.Counter;
+import locks.util.Lock;
+import locks.util.MyThread;
+
+public class MutexMain {
 
 	public static void main(String[] args) throws InterruptedException {
 		Scanner scanner = new Scanner(System.in);
@@ -11,7 +15,7 @@ public class Main {
 
         Thread[] threads = new Thread[n];
 
-        Counter c = new Counter(); 
+        Counter c = new Counter(0); 
         Lock lock = new MutexLock(1);
 
         for (int i = 0; i < n; i++) {
